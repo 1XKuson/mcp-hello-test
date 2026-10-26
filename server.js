@@ -77,7 +77,7 @@ function createServer() {
 const app = express();
 
 // Health check before the JSON parser so it stays cheap.
-app.get("/health", (_req, res) => res.json({ status: "ok" }));
+app.get(["/health", "/healthz"], (_req, res) => res.json({ status: "ok" }));
 app.get("/", (_req, res) =>
   res.json({ name: "mcp-hello-test", sse: "/sse", http: "/mcp" })
 );
