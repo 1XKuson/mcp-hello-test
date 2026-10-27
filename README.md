@@ -59,3 +59,10 @@ curl -s -X POST localhost:3000/mcp \
   -H 'accept: application/json, text/event-stream' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
 ```
+
+## ContextLink cloud smoke test
+
+This repository also exercises ContextLink GitHub push-to-deploy on the default
+branch. It exposes both `/health` for Cloud Run checks and `/healthz` for local
+checks, and listens on `0.0.0.0:$PORT`. ContextLink builds a managed image from
+the source archive; repository credentials are not passed into the build or runtime.
